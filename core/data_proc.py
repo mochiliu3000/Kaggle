@@ -84,7 +84,7 @@ class Data_proc:
 		for run in range(config.n_run):
 			seed = 2016 + 1000 * (run + 1)
 			# each run, use different seed to split train/valid data
-			skf[run] = StratifiedKFold(dfTrain_origin.ix[:,config.class_label-1], n_folds=config.n_fold, shuffle=True, random_state=seed)
+			skf[run] = StratifiedKFold(dfTrain_origin.ix[:,config.class_label], n_folds=config.n_fold, shuffle=True, random_state=seed)
 			for fold, (trainInd, validInd) in enumerate(skf[run]):
 				print("=================================")
 				print("TrainInd for run: %d fold: %d" % (run+1, fold+1))
