@@ -116,7 +116,7 @@ class Data_proc:
 	def fill_mode(col):
 		col_mode = stats.mode(col.dropna())
 		if len(col[col.isnull()]) > 0:
-			col[col.isnull()] = col_mode
+			col[col.isnull()] = col_mode[0]
 		else:
 			print("WARN: NA not found when fill_mode")
 		return col
