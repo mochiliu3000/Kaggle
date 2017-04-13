@@ -31,7 +31,7 @@ def ensemble_valid(config, ensemble_method, bagging_size, bagging_fraction, mode
 	for bagging_iter in range(bagging_size):
 		#NOTE: suppose you have top 10 models, and within each bagging iteration not all models will be involved. Say for bagging_iter=0, M1-M3 are involved, for bagging_iter=1, M2-M4 are involved. Then for bagging_iter=0, W1-W3 are calculated based on greedy blending on valid dataset; while for M2-M4, W2'-W4' are calculated. An AVG of these 2 bags of weighted preds can be the final preds for test dataset.
 		n_model = len(model_list)
-		rng = np.random.RandomState(2016 + 100 * bagging_iter)
+		rng = np.random.RandomState(2017 + 100 * bagging_iter)
 		randnum = rng.uniform(size=n_model)
 		index_base = [i for i in range(n_model) if randnum[i] < bagging_fraction]
 		model_involved = [model_list[i] for i in index_base]

@@ -20,3 +20,13 @@ config = ParamConfig(train_path = "./titanic/train.csv",
 					 n_bag = 2, 
 					 bagging_size = 3,
 					 bagging_fraction = 0.9)
+
+new_config = ParamConfig(train_path = "",
+					 test_path = "",
+					 output_folder = "./out/lung",
+					 class_label = -1,
+					 n_run = 5,
+					 n_fold = 5,
+					 n_bag = 2, 
+					 bagging_size = 3,
+					 bagging_fraction = 0.9)

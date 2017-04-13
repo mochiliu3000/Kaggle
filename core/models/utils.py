@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn import metrics
 
 
 def label_score(pred_temp_mean):
@@ -14,7 +15,12 @@ def label_score(pred_temp_mean):
 	
 def get_prec(pred_temp_label, labels_valid):
 	#return quadratic_weighted_kappa(pred_temp_label, labels_valid)
-	return precision(pred_temp_label, labels_valid) 
+	#return precision(pred_temp_label, labels_valid)
+	return logloss(pred_temp_label, labels_valid)
+
+
+def logloss(rater_a, rater_b):
+	return metrics.log_loss(rater_b, rater_a)
 
 	
 def precision(rater_a, rater_b):
